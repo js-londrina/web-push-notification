@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/icon.svg" type="image/x-icon">
+  <title>Web Push Notification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="actions-buttons">
+    <button class="notify primary block">Notificar Browser</button>
+    <button class="subscribe secondary block">Inscrever</button>
+    <button class="unsubscribe outline block">Desinscrever</button>
+  </div>
+  <form class="form-push-notification">
+    <h2>Nova Notificação</h2>
+    <div class="input-container">
+      <label for="title">Título</label>
+      <input 
+        class="title"
+        type="text" 
+        name="title" 
+        placeholder="Digite o título da notificação"
+      />
+    </div>
+    <div class="input-container">
+      <label for="content">Conteúdo</label>
+      <textarea 
+        class="content"
+        name="content" 
+        placeholder="Digite o conteúdo da notificação"
+      ></textarea>
+    </div>
+    <button class="submit-push-notification secondary block push-notification">Emitir Notificação</button>
+  </form>
+  <script src="./script.js"></script>
+</body>
+</html>
