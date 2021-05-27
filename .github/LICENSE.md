@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-<a href="https://github.com/lweslen/web_push_notification">
+<a href="https://github.com/js-londrina/web_push_notification">
   <img
     src="https://img.shields.io/badge/Voltar-informational?style=for-the-badge&logo=Google%20Optimize&logoColor=white&color=1887C7"
     alt="Home Project"

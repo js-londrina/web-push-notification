@@ -3,7 +3,7 @@
 
 # **Contribuição**
 
-Este é um projeto totalmente livre que aceita contribuições via pull requests no GitHub. Este documento tem a responsabilidade de alinhar as contribuições de acordo com os padrões estabelecidos no mesmo. Em caso de dúvidas, abra uma [issue](https://github.com/lweslen/web_push_notification/issues/new).
+Este é um projeto totalmente livre que aceita contribuições via pull requests no GitHub. Este documento tem a responsabilidade de alinhar as contribuições de acordo com os padrões estabelecidos no mesmo. Em caso de dúvidas, abra uma [issue](https://github.com/js-londrina/web_push_notification/issues/new).
 
 ## **Como contribuir**
 
@@ -17,7 +17,7 @@ Para contribuir com esse projeto siga estas etapas:
 
 Em caso de duvida, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-<a href="https://github.com/lweslen/web_push_notification">
+<a href="https://github.com/js-londrina/web_push_notification">
   <img
     src="https://img.shields.io/badge/Voltar-informational?style=for-the-badge&logo=Google%20Optimize&logoColor=white&color=1887C7"
     alt="Home Project"

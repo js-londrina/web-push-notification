@@ -38,7 +38,7 @@ Para executar o projeto em sua máquina siga os seguintes passos:
 
 1. Faça um clone do projeto em sua máquina;
    ```bash
-   git clone https://github.com/lweslen/web-push-notification.git
+   git clone https://github.com/js-londrina/web-push-notification.git
    ```
 2. Entre na pasta `web-push-notification`:
    ```bash
@@ -76,7 +76,7 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](./.github/LICENS
     alt="Linkedin"
   />
 </a>
-<a href="https://www.github.com/lweslen/">
+<a href="https://www.github.com/js-londrina/">
   <img
     src="https://img.shields.io/badge/lweslen-informational?style=for-the-badge&logo=github&logoColor=white&color=1887C7"
     alt="Github"
