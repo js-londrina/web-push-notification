@@ -61,20 +61,14 @@ router.delete("/subscription", async (ctx, next) => {
   }
 });
 
-// MÉTODO QUE GATILHA UMA NOVO PUSH NOTIFICATION
-async function triggerPush(subscription, data) {
-  const send = await webPush.sendNotification(subscription, data)
-  
-  return send
-}
-
 router.post("/push-notification", async (ctx, next) => {
   const { title, content } = ctx.request.body
   const subscriptions = await Subscription.aggregate().project({ _id: 0, __v: 0 })
 
   subscriptions.map(async(subscription) => {
     delete subscription._id
-    await triggerPush(subscription, JSON.stringify({ title, content }))
+    
+    await webPush.sendNotification(subscription, JSON.stringify({ title, content }))
   })
   
   ctx.body = { message: "Notificações enviadas com sucesso!" }

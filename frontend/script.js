@@ -2,23 +2,16 @@ const APP_SERVER_KEY = "BOsUrym5NcW-ockgs5DdQIk2oxsEvhoDltPhpANWtjwuAMpxIVN8CKoJ
 
 const BASE_URL = "http://localhost:3333/api"
 
-function canNotify(){
+function notify(){
   if ("Notification" in window) {
     if (Notification.permission === "granted") {
-      return true
+      new Notification(
+        "Notificação", 
+        { body: "Está é uma notificação" }
+      )
+    } else {
+      Notification.requestPermission()
     }
-  }
-  return false
-}
-
-function notify(){
-  if (canNotify) {
-    new Notification(
-      "Notificação", 
-      { body: "Está é uma notificação" }
-    );
-  }else{
-    Notification.requestPermission()
   }
 }
 
@@ -28,36 +21,33 @@ buttonNotify.onclick = () => { notify() }
 
 async function subscribe(){
   if ("serviceWorker" in navigator) {
-    if (canNotify) {
-      const registration = await navigator.serviceWorker.ready
-      
-      if(!registration){
-        registration = await navigator.serviceWorker.register("/service-worker.js", { scope: "/" })
+    if ("Notification" in window) {
+      if (Notification.permission === "granted") {
+        const registration = await navigator.serviceWorker.register("/service-worker.js", { scope: "/" })
+        
+        const options = {
+          userVisibleOnly: true,
+          applicationServerKey: APP_SERVER_KEY
+        }
+
+        const pushSubscription = await registration.pushManager.subscribe(options)
+
+        const response = await fetch(`${BASE_URL}/subscription`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ data: pushSubscription })
+        })
+
+        const result = await response.json()
+        
+        if(result.message == "Inscrição criada com sucesso!"){
+          alert("Inscrito para receber notificação!")
+        }  
+      } else {
+        Notification.requestPermission()
       }
-      
-      const options = {
-        userVisibleOnly: true,
-        applicationServerKey: APP_SERVER_KEY
-      }
-
-      const pushSubscription = await registration.pushManager.subscribe(options)
-
-      const response = await fetch(`${BASE_URL}/subscription`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ data: pushSubscription })
-      })
-
-      const result = await response.json()
-      
-      if(result.message == "Inscrição criada com sucesso!"){
-        alert("Inscrito para receber notificação!")
-      }  
-    }
-    else{
-      Notification.requestPermission()
     }
   }
 }
@@ -114,8 +104,7 @@ async function sendNewNotification(){
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body)
   })
-
-      
+ 
   const result = await response.json()
 
   if(result.message == "Notificações enviadas com sucesso!"){
